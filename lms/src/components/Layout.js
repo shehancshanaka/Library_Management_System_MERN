@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import myImage from "../background.png";
 export const Header = styled.header`
-  height: 5vh;
+
+  height: 4vh;
 `;
 export const Main = styled.main`
-  height: 95vh;
+  background-image: url(${myImage});
+  height: 92vh;
 `;
 export const Footer = styled.footer`
   display: flex;

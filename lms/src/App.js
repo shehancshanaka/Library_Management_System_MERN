@@ -1,27 +1,38 @@
-import styled from "styled-components";
-import { Footer, Header, Main } from "./components/Layout";
-import { Navbar, NavItem, NavLink } from "./components/Navbar";
+import React from "react";
+import { ThemeProvider } from "styled-components";
 
-const Title = styled.h1`
-  color: red;
-`;
+import { Footer, Header, Main } from "./components/Layout";
+import { NavBar, NavItem, NavLink, NavImg } from "./components/Navbar";
 
 function App() {
+  const theme = {
+    primary: {
+      main: "#000000",
+      light: "#ffffff",
+      dark: "# 0086c3",
+      textColor: "#000",
+    },
+    secondary: {
+      main: "#fff",
+    },
+    spacing: (factor) => `${factor * 8}px`,
+  };
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header>
-        <Navbar>
+        <NavBar>
           <NavItem>
             <NavLink href="#">Catalog</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Member</NavLink>
+            <NavLink href="#">DashBoard</NavLink>
           </NavItem>
-        </Navbar>
+        </NavBar>
       </Header>
-      <Main>This is the main</Main>
+      <Main></Main>
       <Footer> This is the footer</Footer>
-    </>
+    </ThemeProvider>
   );
-};
+}
 export default App;

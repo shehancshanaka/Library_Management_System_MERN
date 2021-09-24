@@ -1,25 +1,40 @@
 import styled from "styled-components";
-export const Navbar = styled.ul`
+
+export const NavBar = styled.ul`
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: ${(props) => props.theme.primary.main};
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+ 
 `;
 
 export const NavItem = styled.li`
+
   float: left;
 `;
 export const NavLink = styled.a`
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 20px;
   text-decoration: none;
+  text-transform: uppercase;
+  transition: width 3s;
+  transition-delay: 1s;
+
   :hover {
-    background-color: #4fc3f7;
+    width: 100px;
+    background-color: ${(props) => props.theme.primary.light};
+    color: #151515;
   }
   .active {
-    background-color: #04aa6d;
+    background-color: ${(props) => props.theme.primary.dark};
+    color: #151515;
   }
 `;
