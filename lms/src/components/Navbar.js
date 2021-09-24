@@ -15,7 +15,6 @@ export const NavBar = styled.ul`
 `;
 
 export const NavItem = styled.li`
-
   float: left;
 `;
 export const NavLink = styled.a`
