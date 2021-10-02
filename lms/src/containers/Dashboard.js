@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HeaderImage from "../components/Spinner";
 import Tabs from "../components/Tabs";
 
 const Dashboard = () => {
@@ -8,9 +9,11 @@ const Dashboard = () => {
 ]
 
   return (
+    <>
+      
+      <Tabs contents={contents} />
   
-    <Tabs contents={contents}></Tabs>
-  
+    </>
   );
 };
 export default Dashboard;
