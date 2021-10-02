@@ -12,6 +12,9 @@ import loading from "./assets/Spin-1s-200px.gif";
 const Dashboard = React.lazy(() => {
   return import("./containers/Dashboard");
 });
+const NotFound = React.lazy(() => {
+  return import("./containers/404");
+});
 function App() {
   const theme = {
     primary: {
@@ -25,25 +28,25 @@ function App() {
     },
     spacing: (factor) => `${factor * 8}px`,
   };
-   let routes = (
-     <Suspense fallback={<HeaderImage src={loading}/>}>
-       <Switch>
-         <Route exact path={DASHBOARD} component={Dashboard} />
-
-         <Route exact path={"/"} component={Dashboard} />
-         <Route exact path={CATALOG}>
-           <HeaderImage src={loading} />
-         </Route>
-       </Switch>
-     </Suspense>
-   );
+  let routes = (
+    <Suspense fallback={<HeaderImage src={loading} />}>
+      <Switch>
+        <Route exact path={DASHBOARD} component={Dashboard} />
+        <Route exact path={"/"} component={Dashboard} />
+        <Route exact path={CATALOG}>
+          <HeaderImage src={loading} />
+        </Route>
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <NavBar>
         <NavItem>
           <NavLink href={CATALOG}>
-            <ImHome3 size="30px" />
+            <ImHome3 size="35px" />
           </NavLink>
         </NavItem>
         <NavItem>
