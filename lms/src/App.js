@@ -4,13 +4,16 @@ import { ImHome3 } from "react-icons/im";
 import { Footer, Header, Main } from "./components/Layout";
 import { NavBar, NavItem, NavLink } from "./components/Navbar";
 
+import Dashboard from "./containers/Dashboard";
+
+
 function App() {
   const theme = {
     primary: {
-      main: "#848484",
-      light: "#424242",
-      dark: "# 0086c3",
-      textColor: "#000000",
+      main: "#55047a",
+      light: "#ca81f0",
+      dark: "#20012e",
+      textColor: "#ffff",
     },
     secondary: {
       main: "#fff",
@@ -31,7 +34,11 @@ function App() {
           <NavLink href="#">DashBoard</NavLink>
         </NavItem>
       </NavBar>
-      <Main></Main>
+      <Main><Dashboard>
+      
+      
+      
+      </Dashboard></Main>
       <Footer> This is the footer</Footer>
     </ThemeProvider>
   );

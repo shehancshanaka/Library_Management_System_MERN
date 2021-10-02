@@ -23,8 +23,8 @@ export const NavLink = styled.a`
   :hover {
     width: 100px;
     background-color: ${(props) => props.theme.primary.light};
-    color: #848484;
-    font-size: 18px;
+    color: #000;
+    font-size: 20px;
   }
   .active {
     background-color: ${(props) => props.theme.primary.dark};

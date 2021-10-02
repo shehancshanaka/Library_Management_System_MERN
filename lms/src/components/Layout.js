@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import myImage from "../background.png";
+import myImage from "../Spin-1s-200px.gif";
 export const Header = styled.header`
   height: 7vh;
 `;
