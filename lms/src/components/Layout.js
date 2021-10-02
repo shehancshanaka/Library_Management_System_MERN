@@ -1,11 +1,14 @@
 import styled from "styled-components";
-import myImage from "../Spin-1s-200px.gif";
+import myImage from "../background.png";
 export const Header = styled.header`
-  height: 7vh;
+  height: 8vh;
 `;
 export const Main = styled.main`
   background-image: url(${myImage});
+  padding: ${(props)=>props.theme.spacing(1)};
   height: 90vh;
+  align-items:center;
+  flex-directions:column;
 `;
 export const Footer = styled.footer`
   display: flex;
