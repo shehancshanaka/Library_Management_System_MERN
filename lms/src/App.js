@@ -34,12 +34,10 @@ function App() {
           <NavLink href="#">DashBoard</NavLink>
         </NavItem>
       </NavBar>
-      <Main><Dashboard>
-      
-      
-      
-      </Dashboard></Main>
-      <Footer> This is the footer</Footer>
+      <Main>
+        <Dashboard></Dashboard>
+      </Main>
+      <Footer>Copyright {new Date().getFullYear()} @ Spark Academy </Footer>
     </ThemeProvider>
   );
 }
