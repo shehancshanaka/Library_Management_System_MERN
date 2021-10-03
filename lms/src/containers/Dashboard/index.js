@@ -1,15 +1,15 @@
 import React, { useState,useEffect } from "react";
-import Tabs from "../components/Tabs";
-import { getBooks } from "../api/bookAPI";
-import HeaderImage from "../components/Spinner";
-import loading from "../assets/Spin-1s-200px.gif"
-
+import Tabs from "../../components/Tabs";
+import { getBooks } from "../../api/bookAPI";
+import HeaderImage from "../../components/Spinner";
+import loading from "../../assets/Spin-1s-200px.gif";
+import Books from "../Dashboard/Books";
 
 
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState([]);
 
 useEffect(() => {
   setIsLoading(true);
@@ -30,7 +30,7 @@ useEffect(() => {
 
 
   const contents = [
-  {title:"Books", elements:<h1>Contents of books go here</h1>},
+  {title:"Books", elements:<Books catalog={books}></Books>},
   {title:"Members", elements:<h1>Contents of members go here</h1>},
 ]
 

@@ -10,7 +10,7 @@ import loading from "./assets/Spin-1s-200px.gif";
 
 
 const Dashboard = React.lazy(() => {
-  return import("./containers/Dashboard");
+  return import("./containers/Dashboard/index");
 });
 const NotFound = React.lazy(() => {
   return import("./containers/404");
