@@ -1,12 +1,20 @@
-import React from "react";
+import React,{Suspense} from "react";
 import { ThemeProvider } from "styled-components";
 import { ImHome3 } from "react-icons/im";
-import { Footer, Header, Main } from "./components/Layout";
+import { Footer, Main } from "./components/Layout";
 import { NavBar, NavItem, NavLink } from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import HeaderImage from "./components/Spinner";
+import { DASHBOARD, CATALOG } from "./shared/routes";
+import loading from "./assets/Spin-1s-200px.gif";
 
-import Dashboard from "./containers/Dashboard";
 
-
+const Dashboard = React.lazy(() => {
+  return import("./containers/Dashboard");
+});
+const NotFound = React.lazy(() => {
+  return import("./containers/404");
+});
 function App() {
   const theme = {
     primary: {
@@ -20,22 +28,36 @@ function App() {
     },
     spacing: (factor) => `${factor * 8}px`,
   };
+  let routes = (
+    <Suspense fallback={<HeaderImage src={loading} />}>
+      <Switch>
+        <Route exact path={DASHBOARD} component={Dashboard} />
+        <Route exact path={"/"} component={Dashboard} />
+        <Route exact path={CATALOG}>
+          <HeaderImage src={loading} />
+        </Route>
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <NavBar>
         <NavItem>
-          <ImHome3 size="30px" />
+          <NavLink href={CATALOG}>
+            <ImHome3 size="35px" />
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#">Catalog</NavLink>
+          <NavLink href={CATALOG}>Catalog</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#">DashBoard</NavLink>
+          <NavLink href={DASHBOARD}>DashBoard</NavLink>
         </NavItem>
       </NavBar>
       <Main>
-        <Dashboard></Dashboard>
+        <Router>{routes}</Router>
       </Main>
       <Footer>Copyright {new Date().getFullYear()} @ Spark Academy </Footer>
     </ThemeProvider>
