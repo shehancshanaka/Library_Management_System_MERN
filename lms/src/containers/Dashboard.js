@@ -1,6 +1,9 @@
 import React, { useState,useEffect } from "react";
 import Tabs from "../components/Tabs";
-import { getBooks } from "../../api/bookAPI";
+import { getBooks } from "../api/bookAPI";
+import HeaderImage from "../components/Spinner";
+import loading from "../assets/Spin-1s-200px.gif"
+
 
 
 
@@ -13,6 +16,7 @@ useEffect(() => {
   getBooks()
     .then((response) => {
       if (!response.error) setBooks(response.data);
+      console.log(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -30,12 +34,10 @@ useEffect(() => {
   {title:"Members", elements:<h1>Contents of members go here</h1>},
 ]
 
-  return (
-    <>
-      
-      <Tabs contents={contents} />
-  
-    </>
+  return isLoading ? (
+    <HeaderImage src={loading} />
+  ) : (
+    <Tabs contents={contents} />
   );
 };
 export default Dashboard;
