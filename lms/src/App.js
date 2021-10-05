@@ -24,6 +24,14 @@ function App() {
 
       textColor: "#ffffff",
     },
+    danger: { 
+      main: "#e91e63",
+      dark:"#b0003a",
+
+
+
+    },
+    
     tColor: {
       tbColor: "#e1bee7",
       tbhover: "#ab47bc",

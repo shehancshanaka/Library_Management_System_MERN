@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
 import { getBook } from "../../api/bookAPI";
 import LoadingImage from "../../components/Spinner";
@@ -8,8 +9,18 @@ import {
   ContainerInline,
   Button,
   FlexRow,
-  ContainerInlineTextAlignLeft,
 } from "../../components/CommonComponents";
+import BookViewImage from "../../assets/book.png";
+
+const ContainerInlineTextAlignLeft = styled(ContainerInline)`
+  align-items: flex-start;
+`;
+const H1 = styled.h1`
+  text-align: left;
+`;
+const H2 = styled.h2`
+  text-align: left;
+`;
 
 const Book = ({ id, handleBackClick }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,9 +50,9 @@ const Book = ({ id, handleBackClick }) => {
       {!isLoading && book !== null ? (
         <>
           <FlexRow>
-            <ContainerInline>
-              <h1>{book.title}</h1>
-              <h2>{book.author}</h2>
+            <ContainerInlineTextAlignLeft>
+              <H1>{book.title}</H1>
+              <H2>{book.author}</H2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Suspendisse vestibulum, magna in interdum elementum, enim urna
@@ -56,6 +67,13 @@ const Book = ({ id, handleBackClick }) => {
                   <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
                 </>
               )}
+            </ContainerInlineTextAlignLeft>
+            <ContainerInline>
+              <img
+                src={BookViewImage}
+                alt="Book cover placeholder"
+                style={{ border: " 1px solid black" }}
+              />
             </ContainerInline>
           </FlexRow>
           <FlexRow>
@@ -66,13 +84,19 @@ const Book = ({ id, handleBackClick }) => {
                   Lend
                 </Button>
                 <Button
+                  danger
                   onClick={() => console.log("call deleteBook API")}
-                ></Button>
+                >
+                  Delete
+                </Button>
               </>
             ) : (
               <>
                 <h4>{` Burrowed by: ${book.borrowedMemberId}`}</h4>
                 <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
+                <Button onClick={() => console.log("call ReturnBook API")}>
+                  Return
+                </Button>
               </>
             )}
           </FlexRow>

@@ -22,6 +22,7 @@ export const ContainerInline = styled.div`
   align-items: flex-start;
   padding: 1em;
   text-align: left;
+ 
 `;
 
 export const FlexRow = styled.div`
@@ -33,7 +34,7 @@ export const FlexRow = styled.div`
 
 export const Button = styled.button`
   background-color: ${(props) =>
-    props.theme.primary.danger ? props.theme.danger : props.theme.primary.main};
+    props.danger ? props.theme.danger.main : props.theme.primary.main};
   color: ${(props) => props.theme.primary.textColor};
   font-size: ${(props) => (props.size ? props.size : 1)}em;
   padding: 0.25em 1em;
@@ -43,9 +44,9 @@ export const Button = styled.button`
   margin: 1em;
   :hover {
     background-color: ${(props) =>
-      props.theme.primary.danger
-        ? props.theme.primary.dangerDark
-        : props.theme.primary.dark};
+      props.danger ?
+         props.theme.danger.main
+        : props.theme.primary.main};
   }
 `;
 
