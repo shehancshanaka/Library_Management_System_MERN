@@ -43,7 +43,7 @@ const Book = ({ id, handleBackClick }) => {
   }, [id]);
   return (
     <Container>
-      <Button onClick={handleBackClick} size={1.5}>
+      <Button onClick={handleBackClick} size={1.2}>
         <IoReturnUpBack />
       </Button>
 

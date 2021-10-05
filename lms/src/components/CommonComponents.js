@@ -29,7 +29,7 @@ export const FlexRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 1em 5em;
+  padding: 1em 5em; 
 `;
 
 export const Button = styled.button`
