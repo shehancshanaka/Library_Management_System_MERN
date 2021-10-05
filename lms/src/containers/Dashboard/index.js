@@ -3,7 +3,7 @@ import Tabs from "../../components/Tabs";
 import { getBooks } from "../../api/bookAPI";
 import HeaderImage from "../../components/Spinner";
 import loading from "../../assets/Spin-1s-200px.gif";
-import Books from "../Dashboard/Books";
+import Books from "./Books";
 
 
 

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
-import { getBook } from "../../api/bookAPI";
-import LoadingImage from "../../components/Spinner";
-import loadingPath from "../../assets/Spin-1s-200px.gif";
+import { getBook } from "../../../api/bookAPI";
+import LoadingImage from "../../../components/Spinner";
+import loadingPath from "../../../assets/Spin-1s-200px.gif";
 import {
   Container,
   ContainerInline,
   Button,
   FlexRow,
-} from "../../components/CommonComponents";
-import BookViewImage from "../../assets/book.png";
+} from "../../../components/CommonComponents";
+import BookViewImage from "../../../assets/book.png";
 
 const ContainerInlineTextAlignLeft = styled(ContainerInline)`
   align-items: flex-start;
