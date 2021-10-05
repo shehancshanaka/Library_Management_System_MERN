@@ -18,13 +18,21 @@ const NotFound = React.lazy(() => {
 function App() {
   const theme = {
     primary: {
-      main: "#55047a",
-      light: "#ca81f0",
-      dark: "#20012e",
-      textColor: "#ffff",
+      main: "#6a1b9a",
+      light: "#9c4dcc",
+      dark: "#38006b",
+
+      textColor: "#ffffff",
+    },
+    tColor: {
+      tbColor: "#e1bee7",
+      tbhover: "#ab47bc",
     },
     secondary: {
-      main: "#fff",
+      main: "#6a1b9a",
+      light: "",
+      dark: "#38006b",
+      textColor: "#ffffff",
     },
     spacing: (factor) => `${factor * 8}px`,
   };

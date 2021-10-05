@@ -3,29 +3,45 @@ import { capitalizeFirstLetter } from "../shared/utils";
 
 export const StyledTable = styled.table`
   border: none;
-  td,
+
   th {
-    border: 1px solid;
+    border: 0.5px solid;
+    background-color: ${(props) => props.theme.primary.main};
+    color:#ffff;
+     
+  
   }
   td {
+      border: 0.5px solid;
     padding: 5px 10px;
   }
   tbody tr {
+  
     :nth-of-type(even) {
       background-color: ${(props) => props.theme.primary.light};
     }
     :hover {
       background-color: ${(props) => props.theme.primary.main};
+      td,
+  th {
+    border:1px solid;
     }
   }
   thead > tr {
-      color:#fff;
     background-color: ${(props) => props.theme.primary.light};
+  }
+  caption{
+font-size: 0.9em;
+padding:${(props) => props.theme.spacing(1)};
+font-weight:bold;
+
+
   }
 `;
 
-const TableMarkup = ({ data }) => (
+const TableMarkup = ({ data,caption }) => (
   <StyledTable>
+    <caption>{ caption}</caption>
     <colgroup>
       {Object.keys(data[0]).map((title, index) => (
         <col key={index} />
