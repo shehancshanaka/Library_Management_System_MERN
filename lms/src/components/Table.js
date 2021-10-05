@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { capitalizeFirstLetter } from "../shared/utils";
 
@@ -22,6 +23,7 @@ export const StyledTable = styled.table`
     }
     :hover {
       background-color: ${(props) => props.theme.primary.main};
+    }
       td,
   th {
     border:1px solid;
@@ -30,36 +32,47 @@ export const StyledTable = styled.table`
   thead > tr {
     background-color: ${(props) => props.theme.primary.light};
   }
-  caption{
-font-size: 0.9em;
+  tr > tr{
+    padding : 0.25em 0.5em;
+  }
+  tr >td{
+    cursor:pointer;
+  }
+
+caption {
+font-size: 1.2em;
 padding:${(props) => props.theme.spacing(1)};
-font-weight:bold;
-
-
+font-weight: bold;
   }
 `;
 
-const TableMarkup = ({ data,caption }) => (
+const TableMarkup = ({ titles, data, handleClick, caption }) => (
   <StyledTable>
-    <caption>{ caption}</caption>
+    <caption>{caption}</caption>
+
     <colgroup>
-      {Object.keys(data[0]).map((title, index) => (
+      {titles.map((title, index) => (
         <col key={index} />
       ))}
     </colgroup>
-   
+    <tbody>
       <tr>
-        {Object.keys(data[0]).map((title, index) => (
+        {titles.map((title, index) => (
           <th key={index}>{capitalizeFirstLetter(title)}</th>
         ))}
       </tr>
-
-
+    </tbody>
     <tbody>
       {data.map((item, index) => (
-        <tr key={index}>
-          {Object.keys(data[0]).map((title, index) => (
-            <td key={index}>{item[title]}</td>
+        <tr key={index} onClick={() => handleClick(item.id)}>
+          {titles.map((title, index) => (
+            <td key={index}>
+              {typeof item[title] === "boolean"
+                ? item[title]
+                  ? "Available"
+                  : "Not Available"
+                : item[title]}
+            </td>
           ))}
         </tr>
       ))}
@@ -67,7 +80,16 @@ const TableMarkup = ({ data,caption }) => (
   </StyledTable>
 );
 
-const Table = ({ data }) => {
-  return data.length > 0 ? <TableMarkup data={data} /> : "no data to populate";
+const Table = ({ data, handleRowClick, instructions }) => {
+  return data.length > 0 ? (
+    <TableMarkup
+      titles={Object.keys(data[0])}
+      data={data}
+      handleClick={handleRowClick}
+      caption={instructions}
+    />
+  ) : (
+    "no data to populate"
+  );
 };
 export default Table;
