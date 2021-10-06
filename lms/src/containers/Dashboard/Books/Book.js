@@ -96,8 +96,8 @@ const Book = ({ id, handleBackClick }) => {
                   ""
                 ) : (
                   <>
-                    <h4>{` Burrowed by: ${book.burrowedMemberId}`}</h4>
-                    <h4>{` Burrowed by: ${book.burrowedDate}`}</h4>
+                    <h4>{` Borrowed by: ${book.burrowedMemberId}`}</h4>
+                    <h4>{` Borrowed by: ${book.burrowedDate}`}</h4>
                   </>
                 )}
               </ContainerInlineTextAlignLeft>
