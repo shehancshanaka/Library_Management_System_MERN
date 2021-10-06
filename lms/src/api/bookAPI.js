@@ -1,4 +1,4 @@
-import { getRequest,putRequest } from "./util";
+import { getRequest,putRequest,deleteRequest } from "./util";
 
 const BASE_URL = "/book";
 
@@ -9,3 +9,4 @@ export const lendBook = (id, burrowedMemberId, burrowedDate) =>
   putRequest(`${BASE_URL}/${id}/burrow`,{burrowedMemberId,burrowedDate});
 
 export const returnBook = (id) => putRequest(`${BASE_URL}/${id}/return`);
+export const deleteBook = (id) => deleteRequest(`${BASE_URL}/${id}`);
