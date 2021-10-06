@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
-import { getBook } from "../../../api/bookAPI";
+import { getBook,lendBook } from "../../../api/bookAPI";
 import LoadingImage from "../../../components/Spinner";
 import loadingPath from "../../../assets/Spin-1s-200px.gif";
 import {
@@ -13,6 +13,7 @@ import {
 import BookViewImage from "../../../assets/book.png";
 import ConfirmationDialog from "../../../components/confirmationDialog";
 import LendDialog from "./LendDialog";
+import { getTodaysDate } from "../../../shared/utils";
 const ContainerInlineTextAlignLeft = styled(ContainerInline)`
   align-items: flex-start;
 `;
@@ -36,10 +37,10 @@ const Book = ({ id, handleBackClick }) => {
     setShowDeleteConfirmation(false);
   };
 
-  const handleLend = (confirmed, member)=>{
+  const handleLend = (confirmed, memberId)=>{
   
     if (confirmed) {
-      console.log("Book lended to",member);
+      lendBook(book.id,memberId,getTodaysDate())
 }
     setShowLendConfirmation(false);
 
