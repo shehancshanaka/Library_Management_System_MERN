@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
-import { getBook,lendBook } from "../../../api/bookAPI";
+import { getBook,lendBook,returnBook } from "../../../api/bookAPI";
 import LoadingImage from "../../../components/Spinner";
 import loadingPath from "../../../assets/Spin-1s-200px.gif";
 import {
@@ -29,6 +29,7 @@ const Book = ({ id, handleBackClick }) => {
   const [book, setBook] = useState(null);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [showLendConfirmation, setShowLendConfirmation] = useState(false);
+  const [showReturnConfirmation, setShowReturnConfirmation] = useState(false);
 
   const handelDelete = (confirmation) => {
     if (confirmation) {
@@ -45,6 +46,14 @@ const Book = ({ id, handleBackClick }) => {
     setShowLendConfirmation(false);
 
   };
+   const handleReturn= (confirmed) => {
+     if (confirmed) {
+       lendBook(book.id);
+     }
+     setShowReturnConfirmation(false);
+  };
+  
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -118,7 +127,7 @@ const Book = ({ id, handleBackClick }) => {
                 <>
                   <h4>{` Burrowed by: ${book.borrowedMemberId}`}</h4>
                   <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
-                  <Button onClick={() => console.log("call ReturnBook API")}>
+                  <Button onClick={() => setShowReturnConfirmation(true)}>
                     Return
                   </Button>
                 </>
@@ -135,12 +144,13 @@ const Book = ({ id, handleBackClick }) => {
         headertext="Confirm book deletion"
         detailtext="Are you sure want to delete this book? this action can't be undone"
       />
-      <LendDialog
-      show={showLendConfirmation} handleClose={handleLend}
-      
+      <LendDialog show={showLendConfirmation} handleClose={handleLend} />
+      <ConfirmationDialog
+        handleClose={handleReturn}
+        show={showReturnConfirmation}
+        headertext="Confirm book return"
+        detailtext="Press 'Confirm' to return book"
       />
-
-     
     </>
   );
 };
