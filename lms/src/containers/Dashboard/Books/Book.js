@@ -11,7 +11,8 @@ import {
   FlexRow,
 } from "../../../components/CommonComponents";
 import BookViewImage from "../../../assets/book.png";
-
+import ConfirmationDialog from "../../../components/confirmationDialog";
+import LendDialog from "./LendDialog";
 const ContainerInlineTextAlignLeft = styled(ContainerInline)`
   align-items: flex-start;
 `;
@@ -25,6 +26,24 @@ const H2 = styled.h2`
 const Book = ({ id, handleBackClick }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [book, setBook] = useState(null);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [showLendConfirmation, setShowLendConfirmation] = useState(false);
+
+  const handelDelete = (confirmation) => {
+    if (confirmation) {
+      console.log("delete confirmation");
+    }
+    setShowDeleteConfirmation(false);
+  };
+
+  const handleLend = (confirmed, member)=>{
+  
+    if (confirmed) {
+      console.log("Book lended to",member);
+}
+    setShowLendConfirmation(false);
+
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,70 +60,87 @@ const Book = ({ id, handleBackClick }) => {
         setIsLoading(false);
       });
   }, [id]);
-  return (
-    <Container>
-      <Button onClick={handleBackClick} size={1.2}>
-        <IoReturnUpBack />
-      </Button>
 
-      {!isLoading && book !== null ? (
-        <>
-          <FlexRow>
-            <ContainerInlineTextAlignLeft>
-              <H1>{book.title}</H1>
-              <H2>{book.author}</H2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse vestibulum, magna in interdum elementum, enim urna
-                interdum arcu, non hendrerit libero enim vitae sem. Aliquam erat
-                volutpat.
-              </p>
+
+  
+  return (
+    <>
+      <Container>
+        <Button onClick={handleBackClick} size={1.2}>
+          <IoReturnUpBack />
+        </Button>
+
+        {!isLoading && book !== null ? (
+          <>
+            <FlexRow>
+              <ContainerInlineTextAlignLeft>
+                <H1>{book.title}</H1>
+                <H2>{book.author}</H2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse vestibulum, magna in interdum elementum, enim urna
+                  interdum arcu, non hendrerit libero enim vitae sem. Aliquam
+                  erat volutpat.
+                </p>
+                {book.isAvailable ? (
+                  ""
+                ) : (
+                  <>
+                    <h4>{` Burrowed by: ${book.borrowedMemberId}`}</h4>
+                    <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
+                  </>
+                )}
+              </ContainerInlineTextAlignLeft>
+              <ContainerInline>
+                <img
+                  src={BookViewImage}
+                  alt="Book cover placeholder"
+                  style={{ border: " 1px solid black" }}
+                />
+              </ContainerInline>
+            </FlexRow>
+            <FlexRow>
               {book.isAvailable ? (
-                ""
+                <>
+                  {" "}
+                  <Button onClick={() => setShowLendConfirmation(true)}>
+                    Lend
+                  </Button>
+                  <Button
+                    danger
+                    onClick={() => setShowDeleteConfirmation(true)}
+                  >
+                    Delete
+                  </Button>
+                </>
               ) : (
                 <>
                   <h4>{` Burrowed by: ${book.borrowedMemberId}`}</h4>
                   <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
+                  <Button onClick={() => console.log("call ReturnBook API")}>
+                    Return
+                  </Button>
                 </>
               )}
-            </ContainerInlineTextAlignLeft>
-            <ContainerInline>
-              <img
-                src={BookViewImage}
-                alt="Book cover placeholder"
-                style={{ border: " 1px solid black" }}
-              />
-            </ContainerInline>
-          </FlexRow>
-          <FlexRow>
-            {book.isAvailable ? (
-              <>
-                {" "}
-                <Button onClick={() => console.log("call lend API")}>
-                  Lend
-                </Button>
-                <Button
-                  danger
-                  onClick={() => console.log("call deleteBook API")}
-                >
-                  Delete
-                </Button>
-              </>
-            ) : (
-              <>
-                <h4>{` Burrowed by: ${book.borrowedMemberId}`}</h4>
-                <h4>{` Burrowed by: ${book.borrowedDate}`}</h4>
-                <Button onClick={() => console.log("call ReturnBook API")}>
-                  Return
-                </Button>
-              </>
-            )}
-          </FlexRow>
-        </>
-      ) : (
-        <LoadingImage src={loadingPath} />
-      )}
-    </Container>
+            </FlexRow>
+          </>
+        ) : (
+          <LoadingImage src={loadingPath} />
+        )}
+      </Container>
+      <ConfirmationDialog
+        handleClose={handelDelete}
+        show={showDeleteConfirmation}
+        headertext="Confirm book deletion"
+        detailtext="Are you sure want to delete this book? this action can't be undone"
+      />
+      <LendDialog
+      show={showLendConfirmation} handleClose={handleLend}
+      
+      />
+
+     
+    </>
   );
 };
 export default Book;
