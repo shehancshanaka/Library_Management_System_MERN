@@ -48,7 +48,7 @@ const Book = ({ id, handleBackClick }) => {
   };
    const handleReturn= (confirmed) => {
      if (confirmed) {
-       lendBook(book.id);
+       returnBook(book.id);
      }
      setShowReturnConfirmation(false);
   };
