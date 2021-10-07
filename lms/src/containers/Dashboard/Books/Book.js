@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
-import { getBook,lendBook,returnBook } from "../../../api/bookAPI";
+import { getBook, lendBook, returnBook ,deleteBook} from "../../../api/bookAPI";
 import LoadingImage from "../../../components/Spinner";
 import loadingPath from "../../../assets/Spin-1s-200px.gif";
 import {
@@ -33,27 +33,23 @@ const Book = ({ id, handleBackClick }) => {
 
   const handelDelete = (confirmation) => {
     if (confirmation) {
-      console.log("delete confirmation");
+      deleteBook(book.id);
     }
     setShowDeleteConfirmation(false);
   };
 
-  const handleLend = (confirmed, memberId)=>{
-  
+  const handleLend = (confirmed, memberId) => {
     if (confirmed) {
-      lendBook(book.id,memberId,getTodaysDate())
-}
+      lendBook(book.id, memberId, getTodaysDate());
+    }
     setShowLendConfirmation(false);
-
   };
-   const handleReturn= (confirmed) => {
-     if (confirmed) {
-       returnBook(book.id);
-     }
-     setShowReturnConfirmation(false);
+  const handleReturn = (confirmed) => {
+    if (confirmed) {
+      returnBook(book.id);
+    }
+    setShowReturnConfirmation(false);
   };
-  
-
 
   useEffect(() => {
     setIsLoading(true);
@@ -71,8 +67,6 @@ const Book = ({ id, handleBackClick }) => {
       });
   }, [id]);
 
-
-  
   return (
     <>
       <Container>
@@ -125,7 +119,6 @@ const Book = ({ id, handleBackClick }) => {
                 </>
               ) : (
                 <>
-               
                   <Button onClick={() => setShowReturnConfirmation(true)}>
                     Return
                   </Button>
