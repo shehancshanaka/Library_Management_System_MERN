@@ -11,22 +11,22 @@ export const Modal = styled.div`
 `;
 const DialogBoxAnimation = keyframes`
 from {top: 0px;}
-  to {top: 120px; }
+  to {top: 20px; }
  `;
 export const DialogBox = styled.div`
   text-align: center;
   position: relative;
   background: white;
-  width: 33%;
-  height: auto;
-  top: 20%;
+  width:20%;
+  height: 400px;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, 50%);
   border-radius: 10px;
   padding: 0.75em;
   color: rgba(0, 0, 139, 0.7);
   animation-name: ${DialogBoxAnimation};
-  animation-duration: 3.5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 `;
 
