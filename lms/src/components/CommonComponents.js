@@ -1,4 +1,7 @@
 import styled from "styled-components";
+
+
+
 export const FluidContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,14 +25,13 @@ export const ContainerInline = styled.div`
   align-items: flex-start;
   padding: 1em;
   text-align: left;
- 
 `;
 
 export const FlexRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 1em 5em; 
+  padding: 1em 5em;
 `;
 
 export const Button = styled.button`
@@ -42,11 +44,11 @@ export const Button = styled.button`
   border-radius: 0.5em;
   cursor: pointer;
   margin: 1em;
+
+  ${(props) => (props.rounded ? "border-radius:50%; padding:0.5em;" : "")}
   :hover {
     background-color: ${(props) =>
-      props.danger ?
-         props.theme.danger.main
-        : props.theme.primary.main};
+      props.danger ? props.theme.danger.main : props.theme.primary.main};
   }
 `;
 
