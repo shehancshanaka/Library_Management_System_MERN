@@ -9,8 +9,6 @@ export const StyledTable = styled.table`
     border: 0.5px solid;
     background-color: ${(props) => props.theme.primary.main};
     color:#ffff;
-     
-  
   }
   td {
       border: 0.5px solid;
@@ -85,8 +83,8 @@ const Table = ({ data, handleRowClick, instructions }) => {
     <TableMarkup
       titles={Object.keys(data[0])}
       data={data}
-      handleClick={handleRowClick}
-      caption={instructions}
+      handleClick={handleRowClick ? handleRowClick:()=>{}}
+      caption={instructions ? instructions:""}
     />
   ) : (
     "no data to populate"

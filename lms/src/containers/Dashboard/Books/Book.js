@@ -133,15 +133,15 @@ const Book = ({ id, handleBackClick }) => {
       <ConfirmationDialog
         handleClose={handelDelete}
         show={showDeleteConfirmation}
-        headertext="Confirm book deletion"
-        detailtext="Are you sure want to delete this book? this action can't be undone"
+        headerText="Confirm book deletion"
+        detailText="Are you sure want to delete this book? this action can't be undone"
       />
       <LendDialog show={showLendConfirmation} handleClose={handleLend} />
       <ConfirmationDialog
         handleClose={handleReturn}
         show={showReturnConfirmation}
-        headertext="Confirm book return"
-        detailtext="Press 'Confirm' to return book"
+        headerText="Confirm book return"
+        detailText="Press 'Yes' to  confirm return the book"
       />
     </>
   );
