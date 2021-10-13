@@ -10,7 +10,7 @@ import loading from "./assets/Spin-1s-200px.gif";
 
 
 const Dashboard = React.lazy(() => {
-  return import("./containers/Dashboard");
+  return import("./containers/Dashboard/index");
 });
 const NotFound = React.lazy(() => {
   return import("./containers/404");
@@ -18,13 +18,29 @@ const NotFound = React.lazy(() => {
 function App() {
   const theme = {
     primary: {
-      main: "#55047a",
-      light: "#ca81f0",
-      dark: "#20012e",
-      textColor: "#ffff",
+      main: "#6a1b9a",
+      light: "#9c4dcc",
+      dark: "#38006b",
+
+      textColor: "#ffffff",
+    },
+    danger: { 
+      main: "#e91e63",
+      dark:"#b0003a",
+
+
+
+    },
+    
+    tColor: {
+      tbColor: "#e1bee7",
+      tbhover: "#ab47bc",
     },
     secondary: {
-      main: "#fff",
+      main: "#6a1b9a",
+      light: "",
+      dark: "#38006b",
+      textColor: "#ffffff",
     },
     spacing: (factor) => `${factor * 8}px`,
   };
