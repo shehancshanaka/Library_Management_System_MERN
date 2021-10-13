@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, FlexRow, Select } from "../../../components/CommonComponents";
+import { Button, FlexRow } from "../../../components/CommonComponents";
 import { Modal, DialogBox } from "../../../components/Modal";
 import { getMembers } from "../../../api/memberAPI";
 
