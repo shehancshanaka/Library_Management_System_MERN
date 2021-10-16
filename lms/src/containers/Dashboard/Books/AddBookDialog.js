@@ -3,10 +3,9 @@ import {
   Button,
   Container,
   FlexRow,
-  Select,
+  
 } from "../../../components/CommonComponents";
 import { Modal, DialogBox } from "../../../components/Modal";
-import { getMembers } from "../../../api/memberAPI";
 import Input from "../../../components/input";
 
 export default function AddBookDialog({ handleClose, show }) {
@@ -40,26 +39,28 @@ export default function AddBookDialog({ handleClose, show }) {
         <h2>Add Book</h2>
         <p>Enter the below details of the books</p>
         <Container alignItems="center" disableFullWidth>
-          <Input
-            label="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            type="text"
-            id="title"
-            name="title"
-            required
-            minLength="1"
-          />
-          <Input
-            label="Author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            type="text"
-            id="author"
-            name="author"
-            required
-            minLength="1"
-          />
+          <FlexRow>
+            <Input
+              label="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              id="title"
+              name="title"
+              required
+              minLength="1"
+            />
+            <Input
+              label="Author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              type="text"
+              id="author"
+              name="author"
+              required
+              minLength="1"
+            />
+          </FlexRow>
         </Container>
         <FlexRow>
           <Button onClick={sendDone}>Done</Button>

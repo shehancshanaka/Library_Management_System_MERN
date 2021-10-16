@@ -14,7 +14,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 1em;
 `;
 
 export const ContainerInline = styled.div`
@@ -22,16 +21,17 @@ export const ContainerInline = styled.div`
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 1em;
   text-align: left;
 `;
 
 export const FlexRow = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
-  padding: 1em 5em;
+  align-items: center;
+  padding: 0.25em 2em 0.5em 0.5em;
 `;
 
 export const Button = styled.button`

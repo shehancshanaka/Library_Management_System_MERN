@@ -7,7 +7,7 @@ margin-bottom: 0.75em;
 display:block;
 `;
 const StyledInput = styled.input`
-padding:0.5em;
+padding:0.5em 0.5em 0.5em 0.5em;
 border:2px solid ${(props) => props.theme.primary.main};
 border-radius:3px;
 margin-bottom:0.5em;

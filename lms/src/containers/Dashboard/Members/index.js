@@ -41,7 +41,7 @@ const Members = ({ catalog }) => {
           <Table
             data={catalog}
             handleRowClick={handleTableRowClick}
-            instructions="Click a row to view Book"
+            instructions="Click a row to view Single Member"
           />
         }
       </FluidContainer>

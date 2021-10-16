@@ -82,9 +82,7 @@ const Book = ({ id, handleBackClick }) => {
                 <H2>{book.author}</H2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse vestibulum, magna in interdum elementum, enim urna
-                  interdum arcu, non hendrerit libero enim vitae sem. Aliquam
-                  erat volutpat.
+                  Suspendisse vestibulum, magna in interdum elementum, enim urna.
                 </p>
                 {book.isAvailable ? (
                   ""

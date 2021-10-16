@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, FlexRow, Select } from "../../../components/CommonComponents";
+import { Button, FlexRow } from "../../../components/CommonComponents";
 import { Modal, DialogBox } from "../../../components/Modal";
 import { getMembers } from "../../../api/memberAPI";
 
@@ -20,13 +20,22 @@ export default function LendDialog({ handleClose, show }) {
     }
   };
   const sendCancel = () => handleClose(false, null);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const response = getMembers();
-    setMembers(response);
-    setIsLoading(false);
-  }, []);
+  console.log(members);
+    useEffect(() => {
+      setIsLoading(true);
+      getMembers()
+        .then((response) => {
+          if (!response.error) {
+            setMembers(response.data);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, []);
 
   return (
     <Modal show={show}>

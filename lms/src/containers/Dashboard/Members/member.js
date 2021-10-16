@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { IoReturnUpBack } from "react-icons/io5";
 import {
-  getMembers,
   deleteMember,
   getMember,
 } from "../../../api/memberAPI";
@@ -14,16 +13,10 @@ import {
   Button,
   FlexRow,
 } from "../../../components/CommonComponents";
-import BookViewImage from "../../../assets/book.png";
+import MemberViewImage from "../../../assets/person-bw.png";
 import ConfirmationDialog from "../../../components/confirmationDialog";
 const ContainerInlineTextAlignLeft = styled(ContainerInline)`
   align-items: flex-start;
-`;
-const H1 = styled.h1`
-  text-align: left;
-`;
-const H2 = styled.h2`
-  text-align: left;
 `;
 
 const Member = ({ id, handleBackClick }) => {
@@ -64,17 +57,21 @@ const Member = ({ id, handleBackClick }) => {
           <>
             <FlexRow>
               <ContainerInlineTextAlignLeft>
-                <H1>{member.id}</H1>
-                <H2>{member.name}</H2>
+                {/* <H1>{member.id}</H1>
+                <H2>{member.name}</H2> */}
 
                 <>
-                  <h4>{` Member ID: ${member.id}`}</h4>
-                  <h4>{` Member Name: ${member.name}`}</h4>
+                  {/* <h4>{` Member ID: ${member.id}`}</h4> */}
+                  <h4>{` Member First Name: ${member.name}`}</h4>
+                  <h4>{` Member  Last Name: ${member.lastName}`}</h4>
+                  <h4>{` Member NIC: ${member.nic}`}</h4>
+                  <h4>{` Member Address: ${member.address}`}</h4>
+                  <h4>{` Member user Type: ${member.userType}`}</h4>
                 </>
               </ContainerInlineTextAlignLeft>
-              <ContainerInline>
+              <ContainerInline >
                 <img
-                  src={BookViewImage}
+                  src={MemberViewImage}
                   alt="Book cover placeholder"
                   style={{ border: " 1px solid black" }}
                 />
