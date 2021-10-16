@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Clone the project via visual code and run command in terminal "npm install".
+Clone the project and run "npm install" command in terminal .
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Clone the project via visual code.
     
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot (105)](https://user-images.githubusercontent.com/39334423/137586167-e8b01f76-69f3-4120-88b5-af2856044653.png)
 
   
 ## Demo
