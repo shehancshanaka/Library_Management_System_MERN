@@ -17,7 +17,6 @@ const Dashboard = () => {
     getBooks()
       .then((response) => {
         if (!response.error) setBooks(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -26,20 +25,19 @@ const Dashboard = () => {
         setIsLoading(false);
       });
   }, []);
- useEffect(() => {
-   setIsLoading(true);
-   getMembers()
-     .then((response) => {
-       if (!response.error) setMembers(response.data);
-       console.log(response.data);
-     })
-     .catch((error) => {
-       console.log(error);
-     })
-     .finally(() => {
-       setIsLoading(false);
-     });
- }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    getMembers()
+      .then((response) => {
+        if (!response.error) setMembers(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   const contents = [
     { title: "Books", elements: <Books catalog={books}></Books> },

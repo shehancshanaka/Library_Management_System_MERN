@@ -57,11 +57,7 @@ const Member = ({ id, handleBackClick }) => {
           <>
             <FlexRow>
               <ContainerInlineTextAlignLeft>
-                {/* <H1>{member.id}</H1>
-                <H2>{member.name}</H2> */}
-
-                <>
-                  {/* <h4>{` Member ID: ${member.id}`}</h4> */}
+  <>
                   <h4>{` Member First Name: ${member.name}`}</h4>
                   <h4>{` Member  Last Name: ${member.lastName}`}</h4>
                   <h4>{` Member NIC: ${member.nic}`}</h4>
@@ -90,8 +86,8 @@ const Member = ({ id, handleBackClick }) => {
       <ConfirmationDialog
         handleClose={handelDelete}
         show={showDeleteConfirmation}
-        headerText="Confirm book deletion"
-        detailText="Are you sure want to delete this book? this action can't be undone"
+        headerText="Confirm member deletion"
+        detailText="Are you sure want to delete this member? this action can't be undone"
       />
       
       
