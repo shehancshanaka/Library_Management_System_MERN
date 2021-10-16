@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import notFoundImg from "../assets/404.gif";
-export const FluidContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import { FluidContainer } from "../components/CommonComponents";
 const Title = styled.h1`
   font-size: 2.5em;
   margin-bottom: 0;

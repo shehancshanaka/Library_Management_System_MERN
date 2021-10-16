@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 export const TabsContainer = styled.div`
   overflow: hidden;
   background: #fff;
   height: 100%;
+  max-width:100%;
+ 
 `;
 
 export const TabButtonContainer = styled.div`
@@ -15,6 +18,7 @@ export const TabButtonContainer = styled.div`
 `;
 
 export const Tab = styled.button`
+
   border: none;
   outline: none;
   cursor: pointer;
@@ -38,7 +42,7 @@ export const Tab = styled.button`
 `;
 
 export const TabContents = styled.div`
-  border: 0.75em solid #9d4ec2;
+  border: 0.25em solid #9d4ec2;
   border-top: 0.75em solid #9d4ec2;
   border-bottom: 0.75em solid #9d4ec2;
   min-height: 80vh;
