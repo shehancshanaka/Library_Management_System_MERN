@@ -1,13 +1,12 @@
-import React,{Suspense} from "react";
+import React, { Suspense } from "react";
 import { ThemeProvider } from "styled-components";
 import { ImHome3 } from "react-icons/im";
 import { Footer, Main } from "./components/Layout";
 import { NavBar, NavItem, NavLink } from "./components/Navbar";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderImage from "./components/Spinner";
 import { DASHBOARD, CATALOG } from "./shared/routes";
 import loading from "./assets/Spin-1s-200px.gif";
-
 
 const Dashboard = React.lazy(() => {
   return import("./containers/Dashboard/index");
@@ -24,14 +23,11 @@ function App() {
 
       textColor: "#ffffff",
     },
-    danger: { 
+    danger: {
       main: "#e91e63",
-      dark:"#b0003a",
-
-
-
+      dark: "#b0003a",
     },
-    
+
     tColor: {
       tbColor: "#e1bee7",
       tbhover: "#ab47bc",
@@ -75,7 +71,7 @@ function App() {
       <Main>
         <Router>{routes}</Router>
       </Main>
-      <Footer>Copyright {new Date().getFullYear()} @ Spark Academy </Footer>
+      <Footer>Copyright {new Date().getFullYear()} @ Shehan Shanaka </Footer>
     </ThemeProvider>
   );
 }

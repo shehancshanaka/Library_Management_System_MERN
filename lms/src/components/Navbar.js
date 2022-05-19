@@ -7,6 +7,7 @@ export const NavBar = styled.ul`
   padding: 0.25em;
   overflow: hidden;
   background-color: ${(props) => props.theme.primary.main};
+  top: 0;
   width: 100%;
   z-index: 1;
 `;
